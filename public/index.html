@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Places</title>
+
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/7.15.0/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/7.15.0/firebase-auth.js"></script>
+        <!-- We use a downgraded firestore API due to a bug -->
+        <!-- https://github.com/firebase/firebase-js-sdk/issues/3179 -->
+        <script defer src="/__/firebase/7.14.1/firebase-firestore.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script defer src="/__/firebase/init.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2>Please Login</h2>
+            <button id="google-login" onclick="googleLogin()">Login with Google</button>
+        </div>
+        </div>
+
+        <div id="header" style="width: 100%;">
+            <div class="profile-picture-div">
+                <img id="user-profile-picture">
+            </div>
+            <div class="logout-div">
+                <button class="logout is-danger" onclick="logout()">Log Out</button>
+            </div>
+        </div>
+
+        <div id="map"></div>
+        <div class="form-popup" id="placeForm" style="display: none;">
+            <ul class="form-list">
+                <li>
+                    <input id="place-name" class="custom-input" type="text" placeholder="Place Name" name="placeName" required>
+                </li> 
+                <li>
+                    <input id="place-description" class="custom-input" type="text" placeholder="Place Description" name="placeName" required>
+                </li>
+                <li>
+                    <ul class="place-form-hours-list">
+                        <li id="sunday-hours">
+                            <p>Sunday</p>
+                            <input type="time"name="sunday-open" required>
+                            <input type="time"name="sunday-close" required>
+                        </li>
+                        <li id="monday-hours">
+                            <p>Monday</p>
+                            <input type="time"name="monday-open" required>
+                            <input type="time"name="monday" required>
+                        </li>
+                        <li id="tuesday-hours">
+                            <p>Tuesday</p>
+                            <input type="time"name="tuesday-open" required>
+                            <input type="time"name="tuesday-close" required>
+                        </li>
+                        <li id="wednesday-hours">
+                            <p>Wednesday</p>
+                            <input type="time"name="wednesday-open" required>
+                            <input type="time"name="wednesday-close" required>
+                        </li>
+                        <li id="thursday-hours">
+                            <p>Thursday</p>
+                            <input type="time"name="thursday-open" required>
+                            <input type="time"name="thursday-close" required>
+                        </li>
+                        <li id="friday-hours">
+                            <p>Friday</p>
+                            <input type="time"name="friday-open" required>
+                            <input type="time"name="friday-close" required>
+                        </li>
+                        <li id="saturday-hours">
+                            <p>Saturday</p>
+                            <input type="time"name="saturday-open" required>
+                            <input type="time"name="saturday-close" required>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="submit" onclick="addPlace()">Create Place</button>
+                    <button class="is-danger" onclick="closePlaceForm()">Close</button>
+                </li>
+            </ul>
+        </div>
+        <div id="sidebar">
+            <div class="search-div">
+                <form id="search-form">
+                    <input id="search-box" class="custom-input" type="text" placeholder="Search" onkeyup="cardFilter(this.value)"/>
+                </form> 
+            </div>
+            <template id="place-card-template" >
+                <div class="place-card">
+                    <div class="card-header">
+                    <h2 class="card-title">Place Name</h2>
+                    <hr>
+                    </div>
+                    <div class="card-content">
+                    <p class="card-desc">Place description</p>
+                    <p class="place-hours">place hours</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="keyword-div">
+                            <button class="keyword-button">Keyword</button>
+                            <button class="keyword-button">Keyword</button>
+                        </div>
+                        <button class="delete-place-button is-danger" onclick="deletePlace(this)">Delete</button>
+                    </div>
+                </div>
+                </template>
+            <div id="card-div">
+            </div>
+        </div>
+    
+        <script src="js/auth.js">
+        </script>
+        <script src="js/map.js">
+        </script>
+        <script src="js/placeCards.js">
+        </script>
+        <script src="js/db.js">
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsP2dFQUmabL6yiuu0GgdWe1ktsAD_r4M&callback=initMap"
+        async defer></script>
+    </body>
+</html>
+

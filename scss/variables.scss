@@ -1,0 +1,21 @@
+// Lets define our colors
+$sapphire: #0C6291;
+$danger-red: #E03A3A;
+$light-green: #8FC93A;
+$google-blue: #4c8bf5;
+$white: white;
+
+// Then our computated colors
+
+$primary: $sapphire;
+$secondary: $danger-red;
+$success: $light-green;
+$danger: $danger-red;
+
+// Finally our fancy shadow
+
+$fancy-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+            0 2px 2px rgba(0,0,0,0.12), 
+            0 4px 4px rgba(0,0,0,0.12), 
+            0 8px 8px rgba(0,0,0,0.12),
+            0 16px 16px rgba(0,0,0,0.12);

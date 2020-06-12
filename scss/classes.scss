@@ -1,0 +1,116 @@
+@import 'variables';
+
+.submit {
+    background-color: $primary;
+    color: $white;
+}
+
+.is-danger {
+    background-color: $danger;
+    color: $white;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    display: inline-block;
+    background-color: #fefefe;
+    padding: 20px;
+    padding-top: 0px;
+    border: 0px;
+    border-radius: 4px;
+}
+
+.modal-content * {
+    text-align: center;
+}
+
+.profile-picture-div {
+    height: 100%;
+    max-width: 1000%;
+    margin: 0px;
+}
+
+.keyword-button {
+    font-size: 10px;
+    margin: 0px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.place-card {
+    background-color: $primary;
+    color: $white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin: 0px;
+    margin-top: 5px;
+    box-shadow: $fancy-shadow;
+}
+
+.card-header {
+    margin-left: 5px;
+}
+
+.card-header h2 {
+    margin: 0px;
+}
+
+.card-content {
+    margin-left: 5px;
+}
+
+.card-footer p{
+    margin: 0px;
+    margin-left: 5px;
+}
+
+.form-popup {
+    display: inline-block;
+    position: fixed;
+    top: 5%;
+    right: 25%;
+    background-color: $white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: $fancy-shadow;
+}
+
+.form-list {
+    padding: 5px;
+    margin: 0px;
+}
+
+.place-form-hours-list {
+    padding: 0px;
+    margin: 0px;
+}
+
+.place-form-hours-list p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.place-form-container li {
+    padding: 5px;
+    list-style-type: none;
+}
+
+.place-description {
+    height: 20px;
+}
+
+.delete-place-button {
+    font-size: 15px;
+}

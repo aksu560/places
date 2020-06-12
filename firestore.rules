@@ -1,0 +1,10 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // We allow users to only access their own file
+    match /users/{user_id} {
+      allow read, update, delete: if request.auth.uid == user_id;
+      allow create: if request.auth.uid != null;
+    }
+  }
+}

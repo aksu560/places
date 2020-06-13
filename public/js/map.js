@@ -56,6 +56,11 @@ function addPlace() {
 
     let hours = []
 
+    if (name === "") {
+        window.alert("Please add a name to the place.")
+        return false;
+    }
+
     // We add every pair of hours together into the array.
     for (let i = 0; i < inputList.length / 2; i++) {
 

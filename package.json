@@ -7,11 +7,10 @@
     "serve": "firebase serve",
     "sass": "node-sass --watch scss -o public/css",
     "sass-once": "node-sass scss -o public/css",
-    "init": "firebase init --hosting --firestore && echo 'Remember to go replace the Google Maps API key in index.html'",
+    "init": "npm i && firebase init && npm run sass-once && echo 'Remember to go replace the Google Maps API key in index.html'",
     "deploy": "npm run sass-once && firebase deploy"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Aksu",
   "dependencies": {
     "firebase": "7.14.1",
     "node-sass": "^4.14.1"

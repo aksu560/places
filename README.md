@@ -29,6 +29,7 @@ The project runs on Firebase, and uses Firestore as the database solution. In th
 * Some kind of a quickstart tour for first time users.
 * Actual database security. This thing is extremely unsecure. The DB does not care who sends or reads and what they send or read. This should be fixed.
 * Consistant time picker. Right now the app uses the browsers time picker. And while Chromes isn't bad, it isn't good either. And Firefoxes picker is painful to use.
+* Login persistance. Currently the user has to log in every time they reload the site.
 
 
 ### Code Oddities, AKA: "Wait why does it do this?"

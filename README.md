@@ -21,7 +21,6 @@ The project runs on Firebase, and uses Firestore as the database solution. In th
 * Place keywords. The current tags under the open hours are placeholders.
 * Editing places.
 * Filtering places to only display currently open places. I originally missed this in hte specs, and hence the opening hours are in string format. Implementing it is doable, but requires minor tweaking to the database structure.
-* Geolocation, so we can tell the user where they actually are. Right now the map centers on autotalo on load, no matter what.
 
 ### Features not on the specs, that I'd like to have implemented, but haven't yet:
 
@@ -31,6 +30,7 @@ The project runs on Firebase, and uses Firestore as the database solution. In th
 * Consistant time picker. Right now the app uses the browsers time picker. And while Chromes isn't bad, it isn't good either. And Firefoxes picker is painful to use.
 * Login persistance. Currently the user has to log in every time they reload the site.
 * Have customization for the user, like setting if the week starts on sunday, and darkmode.
+* Geolocation, so we can tell the user where they actually are. Right now the map centers on autotalo on load, no matter what.
 
 
 ### Code Oddities, AKA: "Wait why does it do this?"

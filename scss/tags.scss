@@ -23,6 +23,8 @@ button {
 }
 
 button:active {
+    border: none;
+    outline: none;
     box-shadow: inset $fancy-shadow;
 }
 

@@ -70,10 +70,24 @@
 .card-content {
     margin-left: 5px;
 }
+.card-desc-div {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.card-footer p{
+    display: flex;
+    justify-content: space-between;
+}
 
 .card-footer p{
     margin: 0px;
     margin-left: 5px;
+}
+
+.place-label {
+    padding: 5px;
+    font-size: 15px;
 }
 
 .form-popup {
@@ -105,12 +119,4 @@
 .place-form-container li {
     padding: 5px;
     list-style-type: none;
-}
-
-.place-description {
-    height: 20px;
-}
-
-.delete-place-button {
-    font-size: 15px;
 }

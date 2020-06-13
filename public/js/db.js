@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     app = firebase.app();
     db = firebase.firestore();
+
 });
 
 // Fetches the user document from DB.
@@ -43,8 +44,16 @@ function getPlaces(user_id) {
             const currentDay = new Date().getDay();
             const data = placeDoc.data();
 
-            addCard(placeDoc.id, data.name, data.description, data.open[currentDay]);
-            addPlaceMarker(placeDoc.id, data.location.latitude, data.location.longitude);
+            addCard(placeDoc.id,
+                data.name,
+                data.description,
+                data.open[currentDay]);
+
+            addPlaceMarker(
+                placeDoc.id,
+                data.location.latitude,
+                data.location.longitude,
+                );
         });
     });
 };

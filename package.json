@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "serve": "firebase serve",
-    "sass": "node-sass --watch scss -o public/css"
+    "sass": "node-sass --watch scss -o public/css",
+    "sass-once": "node-sass scss -o public/css"
   },
   "author": "",
   "license": "ISC",

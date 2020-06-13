@@ -99,12 +99,15 @@
             <template id="place-card-template" >
                 <div class="place-card">
                     <div class="card-header">
-                    <h2 class="card-title">Place Name</h2>
+                        <button class="place-label is-danger" onclick="centerOnPlaceMarker(this)"></button>
+                        <h2 class="card-title">Place Name</h2>
                     <hr>
                     </div>
                     <div class="card-content">
-                    <p class="card-desc">Place description</p>
-                    <p class="place-hours">place hours</p>
+                        <div class="card-desc-div">
+                            <p class="card-desc">Place description</p>
+                        </div>
+                        <p class="place-hours">place hours</p>
                     </div>
                     <div class="card-footer">
                         <div class="keyword-div">
@@ -127,6 +130,7 @@
         </script>
         <script src="js/db.js">
         </script>
+        <!--According to google you are supposed to place the key right here publicly? Seems like a bad idea, but it is restrictd on the GCP console.-->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsP2dFQUmabL6yiuu0GgdWe1ktsAD_r4M&callback=initMap"
         async defer></script>
     </body>

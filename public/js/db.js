@@ -41,8 +41,9 @@ function getPlaces(user_id) {
     // On snapshot establishes a stream, which means we can listen to changes to the db in realtime.
     db_response.onSnapshot(placeCollection => {
 
-        // We reset the marker label counter.
-        nextMarkerLabel = 1
+        // We reset the marker label counter and the pkaceMarkerArray.
+        nextMarkerLabel = 1;
+        resetPlaceMarkers();
         placeCollection.forEach(placeDoc => {
 
             

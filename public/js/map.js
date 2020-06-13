@@ -105,6 +105,16 @@ function removePlaceMarker(id) {
     }
 }
 
+// Removes all markers from the map
+function resetPlaceMarkers() {
+    
+    for (let i = 0; i < placeMarkerArray.length; i++) {
+        removePlaceMarker(
+            placeMarkerArray[i][0]
+        )
+    }
+}
+
 function centerOnPlaceMarker(cardButton) {
     
     let placeId = cardButton.parentNode.parentNode.id;

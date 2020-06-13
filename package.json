@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "test",
     "serve": "firebase serve",
     "sass": "node-sass --watch scss -o public/css",
-    "sass-once": "node-sass scss -o public/css"
+    "sass-once": "node-sass scss -o public/css",
+    "init": "firebase init --hosting --firestore"
   },
   "author": "",
   "license": "ISC",

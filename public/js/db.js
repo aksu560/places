@@ -1,38 +1,12 @@
 // DB Functions.
 
-let app;
 let db;
 
 document.addEventListener('DOMContentLoaded', event => {
 
-    app = firebase.app();
     db = firebase.firestore();
 
 });
-
-// Fetches the user document from DB.
-function getUserDocument(user_id) {
-    const db_response = db.collection('users').doc(user_id);
-
-    db_response.get()
-        .then(doc => {
-            userDocument = doc.data();
-    })
-    
-    if (!userDocument) {
-
-        const data = {
-            name: user.displayName
-        }
-
-        userDocument = db.collection('users').doc(user_id).set(data);
-    } 
-
-    db_response.onSnapshot(userDoc => {
-        userDocument = userDoc.data()
-    });
-
-}
 
 // Establish stream to the users collection of places.
 function getPlaces(user_id) {
@@ -46,7 +20,7 @@ function getPlaces(user_id) {
         resetPlaceMarkers();
         placeCollection.forEach(placeDoc => {
 
-            
+            // We get current day so we can display the open hours for the day.
             const currentDay = new Date().getDay();
             const data = placeDoc.data();
 
@@ -106,13 +80,14 @@ function validatePlaceData(data) {
         data.location = new firebase.firestore.GeoPoint(data.location.latitude, 0.000001);
     }
     
+    // We check if the array contains an entry for each weekday.
     if (!data.open.length === 7) {
         console.error(errorPrefix, "data.open is not length 7");
         return false;
     }
 
-    for (let i = 0; i < data.open.length; i++) {
-        if (!typeof(data.open[i]) === "string") {
+    for (day of data.open) {
+        if (!typeof(day) === "string") {
             console.error(errorPrefix, "data.open contains a value that is not a string");
             return false;
         };
@@ -121,7 +96,7 @@ function validatePlaceData(data) {
     return true;
 };
 
-// Delete place.
+// Removes a place from DB.
 function deletePlace(element) {
     card = element.parentNode.parentNode;
     place_id = card.id;

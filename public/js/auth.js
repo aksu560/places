@@ -2,19 +2,6 @@
 
 let userToken;
 let user;
-let userDocument;
-
-document.addEventListener('DOMContentLoaded', event => {
-
-    // We check if the user is already logged in.
-    // TODO: Fix this. It doesnt work.
-    user = firebase.auth().currentUser;
-
-    if (user) {
-        userLoggedIn();
-    }
-
-});
 
 // Handling Google Popup login.
 function googleLogin() {
@@ -24,8 +11,7 @@ function googleLogin() {
     firebase.auth().signInWithPopup(provider).then(function(result) {
         userToken = result.credential.accessToken;
         user = result.user;
-        userLoggedIn();    
-        getUserDocument(user.uid);
+        userLoggedIn();
 
     }).catch(function(error) {
 

@@ -15,10 +15,10 @@ function addCard(id, title, description, hours) {
     }
 
     // Clone the template.
-    let placeCard = template.cloneNode(true).content;
-    let titleElement = placeCard.querySelector('.card-title');
-    let descElement = placeCard.querySelector('.card-desc');
-    let hoursElement = placeCard.querySelector('.place-hours');
+    const placeCard = template.cloneNode(true).content;
+    const titleElement = placeCard.querySelector('.card-title');
+    const descElement = placeCard.querySelector('.card-desc');
+    const hoursElement = placeCard.querySelector('.place-hours');
 
 
     placeCard.querySelector('.place-card').id = id;
@@ -31,9 +31,9 @@ function addCard(id, title, description, hours) {
 
 // Filter the place cards based on title.
 function cardFilter(filter) {
-    for (let i = 0; i < placeCardDiv.children.length; i++) {
-        let element = placeCardDiv.children[i];
-        let title = element.querySelector('.card-title').textContent.toLowerCase();
+    for (card of placeCardDiv.children) {
+        const element = card;
+        const title = element.querySelector('.card-title').textContent.toLowerCase();
 
         if (title.includes(filter.toLowerCase())) {
             element.hidden = false;

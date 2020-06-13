@@ -1,7 +1,7 @@
 // All map related functions
 
 let map;
-let placeMarkerArray = [];
+let placeMarkerMap = new Map();
 let nextMarkerLabel = 1;
 
 // We define this here, so we have access to it from multiple functions. We can use that to change the places position
@@ -32,10 +32,11 @@ function initMap() {
         clickedPos = {lat: mapsMouseEvent.latLng.lat(), lng: mapsMouseEvent.latLng.lng()}
         clickedPosMarker = new google.maps.Marker({
             position: clickedPos,
-             map: map,
-             animation: google.maps.Animation.DROP,
-            });
-            openPlaceForm(mapsMouseEvent.latLng);
+            map: map,
+            animation: google.maps.Animation.DROP,
+        });
+        
+    	openPlaceForm(mapsMouseEvent.latLng);
     });
 }
 
@@ -50,21 +51,21 @@ function closePlaceForm() {
 
 
 function addPlace() {
-
     let name = placeForm.querySelector('#place-name').value;
     let desc = placeForm.querySelector('#place-description').value;
 
     let inputList = placeForm.querySelector('.place-form-hours-list')
     .getElementsByTagName('input');
 
-    let hours = []
+	let hours = [];
 
     if (name === "") {
-        window.alert("Please add a name to the place.")
+		window.alert("Please add a name to the place.");
         return false;
     }
 
     // We add every pair of hours together into the array.
+    // This is not a great way of doing it, but it works
     for (let i = 0; i < inputList.length / 2; i++) {
 
         let day = inputList[i*2].value + "-" + inputList[i*2+1].value;
@@ -83,14 +84,14 @@ function addPlace() {
 function addPlaceMarker(id, lat, long) {
 
     // Add the marker to the array.
-    placeMarkerArray.push([
-        id,
-        new google.maps.Marker({
-            position: {lat: lat, lng: long},
-            map: map,
-            label: nextMarkerLabel.toString(),
-        })
-    ]);
+	placeMarkerMap.set(
+		id,
+		new google.maps.Marker({
+			position: { lat: lat, lng: long },
+			map: map,
+			label: nextMarkerLabel.toString(),
+		})
+	);
     document.getElementById(id).querySelector(".place-label")
     .textContent = nextMarkerLabel.toString();
     // Change the button 
@@ -98,36 +99,20 @@ function addPlaceMarker(id, lat, long) {
 };
 
 function removePlaceMarker(id) {
-
-    new_array = []
- 
-    for (let i = 0; i < placeMarkerArray.length; i++) {
-        if (placeMarkerArray[i][0] === id) {
-            placeMarkerArray[i][1].setMap(null);
-        }
-    }
+	placeMarkerMap.get(id).setMap(null);
 }
 
 // Removes all markers from the map
 function resetPlaceMarkers() {
-    
-    for (let i = 0; i < placeMarkerArray.length; i++) {
-        removePlaceMarker(
-            placeMarkerArray[i][0]
-        )
-    }
+	for (const key of placeMarkerMap.keys()) {
+		removePlaceMarker(key);
+		placeMarkerMap.delete(key);
+	}
 }
 
 function centerOnPlaceMarker(cardButton) {
     
-    let placeId = cardButton.parentNode.parentNode.id;
-    let targetMarker;
-
-    for (let i = 0; i < placeMarkerArray.length; i++) {
-        if (placeMarkerArray[i][0] === placeId) {
-            targetMarker = placeMarkerArray[i][1];
-        }
-    }
-
-    map.panTo(targetMarker.getPosition());
+    const placeId = cardButton.parentNode.parentNode.id;
+    
+    map.panTo(placeMarkerMap.get(placeId).getPosition());
 }

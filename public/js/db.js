@@ -123,23 +123,3 @@ function deletePlace(element) {
     card.parentNode.removeChild(card);
     removePlaceMarker(place_id);
 }
-
-// Testing function, to be deleted eventually.
-function testSetPlace() {
-    setPlace(
-        user.uid,
-        "Some place",
-        "Descriptive description of the place Described",
-        1,
-        1,
-        [
-            "00:00-23:59",
-            "00:00-23:59",
-            "00:00-23:59",
-            "00:00-23:59",
-            "00:00-23:59",
-            "00:00-23:59",
-            "00:00-23:59",
-        ]
-    );
-}

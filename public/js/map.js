@@ -17,6 +17,9 @@ function initMap() {
       center: {lat: 60.169283, lng: 24.928148},
       zoom: 16,
       disableDoubleClickZoom: true,
+      fullscreenControl: false,
+      streetViewControl: false,
+      zoomControl: false
     });
 
     map.addListener('dblclick', function(mapsMouseEvent) {

@@ -59,7 +59,7 @@ The quick steps to getting the project up and running
 * Go to [your firebase console](https://console.firebase.google.com) and create a new project. Disable Google Analytics when it asks.
 * In the console, enable cloud firestore. You can find this under the database option on the sidebar. Use test mode for developing, but you should write actual security rules if you plan to properly deploy.
 * Enable Google authentication in the project. You can find this from the sidebar under "Authentication".
-* Log-in to the firebase cli.
+* Log-in to the firebase cli with `firebase login`.
 * Run `npm run init` to initialize the project. The command will give you some options for firebase features. Choose "Hosting" and "Firestore". When prompted to pick a project, choose "Use an existing project" and choose the one you created earlier. You can use the default options for the rest of the setup.
 * Go create a Maps api key for your project at [the GCP console.](https://console.cloud.google.com/google/maps-apis/start) Set up some appropriate security rules while you are there.
 * Replace the Maps API key in public/index.html with yours.

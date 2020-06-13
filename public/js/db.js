@@ -38,9 +38,14 @@ function getUserDocument(user_id) {
 function getPlaces(user_id) {
     const db_response = db.collection('users/' + user_id + '/places/');
 
+    // On snapshot establishes a stream, which means we can listen to changes to the db in realtime.
     db_response.onSnapshot(placeCollection => {
+
+        // We reset the marker label counter.
+        nextMarkerLabel = 1
         placeCollection.forEach(placeDoc => {
 
+            
             const currentDay = new Date().getDay();
             const data = placeDoc.data();
 
